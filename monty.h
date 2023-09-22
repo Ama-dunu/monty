@@ -51,12 +51,34 @@ int short_stack_error(unsigned int line_number, char *op);
 int div_error(unsigned int line_number);
 int pop_error(unsigned int line_number);
 int div_error(unsigned int line_number);
+int pchar_error(unsigned int line_number, char *message);
 char *get_int(int num);
 unsigned int _abs(int);
 int get_ numbase_len(unsigned int num, unsigned int base);
 void fill_number_buff(unsigned int num, unsigned int num, unsigned int base,
-                char *buff, int buff_size);
+		char *buff, int buff_size);
 void monty_pchar(stack_t **stack, unsigned int line_number;
 void monty_pstr(stack_t **stack, unsigned int line_number;
+void monty_nop(stack_t **stack, unsigned int line_number);
+void monty_add(stack_t **stack, unsigned int line_number);
+void monty_sub(stack_t **stack, unsigned int line_number);
+void monty_div(stack_t **stack, unsigned int line_number);
+void monty_mul(stack_t **stack, unsigned int line_number);
+void monty_mod(stack_t **stack, unsigned int line_number);
+void free_tokens(void);
+int is_empty_line(char *line, char *delims);
+void (*get_op_func(char *opcode))(stack_t**, unsigned int);
+int run_monty(FILE *script_fd);
+unsigned int token_arr_len(void);
+void set_op_tok_error(int error_code) ;
+void free_stack(stack_t **stack);
+int init_stack(stack_t **stack);
+int check_mode(stack_t *stack);
+char **strtow(char *str, char *delims);
+int is_delim(char ch, char *delims);
+int get_word_length(char *str, char *delims);
+int get_word_count(char *str, char *delims);
+char *get_next_word(char *str, char *delims);
 
-#endif /*__MONTY_H__*/
+
+#endif

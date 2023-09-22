@@ -1,11 +1,5 @@
 #include "monty.h"
 
-int short_stack_error(unsigned int line_number, char *op);
-int div_error(unsigned int line_number);
-int pop_error(unsigned int line_number);
-int div_error(unsigned int line_number);
-int pchar_error(unsigned int line_number, char *message);
-
 /**
  * pop_error - print pop error message for empty stacks
  * @line_number: line number is script where error occurred
